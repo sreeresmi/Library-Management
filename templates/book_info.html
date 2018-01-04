@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>list of books</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href=" {% static 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="{% static 'styles/book_info.css' %}">
+</head>
+
+<body>
+  <style>
+
+    .isbn{
+      text-align: center;
+    }
+    
+  </style>
+<nav class="navbar navbar-toggleable-md navbar-light" >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class = "row">
+    <div class="col-md-2">
+      <h3 style="text-align: center;"><a href="#">Library</a></h3>
+    </div>
+    <div class="col-md-6"></div>
+    <div class="col-md-2">
+      <h4 style="text-align: center;"t><a href="/book_info">Books</a></h4>
+    </div>
+    <div class="col-md-2">
+      <h4 style="text-align: center;"><a href="/author_info">Authors</a></h4>
+    </div>
+  </div>
+	<div class = "col-md-2">	
+</div>
+</nav>
+<div class="container">
+<p></p>
+<p></p>
+  <div class="row">
+    <div class="col-md-4"><p class="text-muted">BOOKS</p></div>
+
+    <div class="col-md-4"><p class="text-muted">{{ books|length }} Books</p></div>
+  </div>
+</div>
+
+<div class="container" >
+
+
+  <div class="row">
+    
+    
+    <div class="col-md-8">
+      {% for book in books %}
+      <div class="row">
+        <div class="col-md-4">
+          <img style='float:left;width:100px;height:100px; margin-right:10px;' src=" {% static 'https://cdn3.iconfinder.com/data/icons/dental-blue-icons/512/Untitled-6.png'%} ">
+          <p name="bname"><strong>{{ book.Book_name }}</strong></p>
+          <p name="author" ><small class="text-muted">by </small><strong>{{ book.author }}</strong></p>
+
+          <p id="born_in" class="text-muted">{{ book.desp }}<button type="button" class="btn btn-link">more</button></p>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <p id="num" class="text-muted" style="margin-left: 62px;">ISBN-{{ book.isbn }}</p>
+        </div>
+      </div>
+
+      <hr class="style1">
+      {% endfor %}
+    </div>
+    
+    <div class="col-md-4">
+      <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add Books</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="text-center">
+  <div class="pagination text">
+
+    <li class="active"><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+  </div>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add author</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form" action="/book_info" method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+
+            <input type="text" class="form-control text-input" id="usr" name="bname" size="48"  placeholder="Title">
+
+          </div>
+          <div class="row">
+
+
+           <div class="form-group col-md-4">
+
+            <select  id="sel1" class="select-input" name="author">
+              <option value=”” disabled selected>Select an author</option>
+              <option value="Ernst ">Ernst</option>
+              <option value="Rupyad ">Rupyad</option>
+              <option value="Ronald ">Ronald</option>
+              <option value="George ">George</option>
+            </select>
+          </div> 
+        </div>
+        <div class="form-group">
+
+          <input type="text" class="form-control text-input" id="usr" name="num" size="48"  placeholder="ISBN">
+
+        </div>
+
+        <div class="form-group">
+
+          <textarea class="form-control text-input"  id="comment" name="about" size="48" placeholder="Description of content" maxlength="300"></textarea>
+          <p class="text-muted" style="font-size: 10px">Maximum 300 characters</p>
+        </div> 
+
+<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      <button type="submit" class="btn btn-default btn-primary" >Add Book</button>
+
+      </form>
+    </div>
+    <div class="modal-footer">
+
+    </div>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

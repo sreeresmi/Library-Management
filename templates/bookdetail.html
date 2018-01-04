@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>detailabook</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .hor-underline{
+      border-bottom: 1px solid rgba(128, 128, 128,0.5);
+    }
+    .active, .active:hover, .active:focus, .active:visited{
+      color: #bdc0c3;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+<nav class="navbar navbar-toggleable-md navbar-light">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class = "row">
+    <div class="col-md-2">
+      <h3 style="text-align: center;"><a href="#">Library</a></h3>
+    </div>
+    <div class="col-md-6"></div>
+    <div class="col-md-2">
+      <h4 style="text-align: center;"t><a href="/book_info">Books</a></h4>
+    </div>
+    <div class="col-md-2">
+      <h4 style="text-align: center;"><a href="/author_info">Authors</a></h4>
+    </div>
+  </div>
+  <div class = "col-md-2">  
+</div>
+</nav>
+<div class="container">
+  <p id="age" ><a class="active" href="/book_info">Books</a> &#8260; <a href="/author_info">Details</a></p>
+</div>
+
+
+<div class="container">
+  <div class="row">
+        <div class="col-md-9 hor-underline">
+          <div class="row">
+            <div class="col-md-8">
+              <img style='float:left;width:100px;height:100px; margin-right:10px;' src="{% static 'https://cdn3.iconfinder.com/data/icons/dental-blue-icons/512/Untitled-6.png' %}">
+              <p id="book"><strong>{{book.Book_name}}</strong></p>
+              <p ><small class="text-muted">by </small><strong>{{book.author}}</strong></p>
+              <p class="text-muted">{{book.desp}}</p>
+            </div>
+            <div class="col-md-2">
+              <p id="Isbn" class="text-muted">{{book.isbn}}</p>
+            </div>
+
+          </div>
+        </div>
+
+   <div class="col-md-2"  style="padding-top: 20px">
+      <a href="#" class="btn btn-info btn-lg" >
+        <span class="glyphicon glyphicon-chevron-left"></span> 
+      </a>
+      <a href="#" class="btn btn-info btn-lg">
+        <span class="glyphicon glyphicon-chevron-right"></span> 
+      </a>
+    </div>     
+         
+      
+
+
+
+  </div>
+  
+  
+</div>
+
+</body>
+</html>

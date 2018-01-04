@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Author and books list</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles/1-col-portfolio3.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-toggleable-md navbar-light" style="margin-top: -50px">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class = "row">
+    <div class="col-md-2">
+      <h3 style="text-align: center;"><a href="#">Library</a></h3>
+    </div>
+    <div class="col-md-6"></div>
+    <div class="col-md-2">
+      <h4 style="text-align: center;"t><a href="/book_info">Books</a></h4>
+    </div>
+    <div class="col-md-2">
+      <h4 style="text-align: center;"><a href="/author_info">Authors</a></h4>
+    </div>
+  </div>
+  <div class = "col-md-2">  
+  </div>
+</nav>
+<div class="container">
+  <p id="age" style="margin-left: -20px"><a class="active" href="/author_info">Authors</a> &#8260; <a href="#">Details</a></p>
+</div>1
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+
+
+      <div class="fad">
+
+
+        <!-- Left-aligned media object -->
+        <div class="media" >
+
+
+          <div class="media-body">
+            <div class="">
+              <div class="row" style="padding-top: 20px">
+                <div class="col-md-8">
+
+                  <img style='float:left;width:100px;height:100px; margin-right:10px;' src={% statc"http://www.bloodygoodbook.com/img/team/author-icon.png" />
+                  <p id="au"><strong>{{author.author}}</strong></p>
+                  <p id="age">{{author.age}} &#8260; {{author.gender}}</p>
+                  
+                </div>
+                <div class="col-md-4">
+                  <p id="born_in" class="text-muted">Born in{{author.Born_in}}</p>
+                </div>
+
+
+              </div>
+            <hr class="style1">
+
+            </div>
+
+            <div class="">
+              <div class="row" style="padding-top: 30px">
+
+                <div class="col-md-8">
+                  <p class="text-muted">BOOKS WRITTEN</p>
+                </div>
+                <div class="col-md-4">
+                  <p class="text-muted"> {{books|length}} books</p>
+                </div>
+              </div>
+            </div>  
+
+
+            <div class="" >
+              <div class="row">
+                <div class="col-md-8" >
+                  <img style='float:left;width:100px;height:100px; margin-right:10px;' src="{% static 'https://cdn3.iconfinder.com/data/icons/dental-blue-icons/512/Untitled-6.png '%}">
+                 
+                  {% for book in books %}
+                  <p id="born_in" class="text-muted">{{book.Book_name}}<button type="button" class="btn btn-link">more</button></p>
+                  <hr class="style1">
+                  
+
+                </div>
+                <div class="col-md-4" style="padding-top: 30px">
+                  <p id="Isbn" class="text-muted">{{book.isbn}}</p>
+                </div>
+              </div>
+              {{% endfor %}}
+            </div>
+
+
+            
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2"  style="padding-top: 20px">
+      <a href="#" class="btn btn-info btn-lg" >
+        <span class="glyphicon glyphicon-chevron-left"></span> 
+      </a>
+      <a href="#" class="btn btn-info btn-lg">
+        <span class="glyphicon glyphicon-chevron-right"></span> 
+      </a>
+    </div>
+  </div>
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+</body>
+</html>

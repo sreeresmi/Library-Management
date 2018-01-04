@@ -1,0 +1,28 @@
+.select-input{
+	box-shadow: none;
+	padding: 5px;
+	width: 300px;
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+.text-input{
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	box-shadow: none;
+	border-radius: 0;
+	border-bottom-width: 2px;
+}
+
+.text-input:focus{
+	box-shadow: none;
+}
